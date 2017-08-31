@@ -1,0 +1,14 @@
+{
+    "name": "samples-todo-core-ts-lambda",
+    "version": "0.0.0",
+    "main": "app.js",
+    "dependencies": {
+        "aws-sdk": "^2.94.0",
+        "claudia-api-builder": "^2.5.1",
+        "lodash": "^4.14.68"
+    },
+    "devDependencies": {
+        "@types/node": "^6.0.85",
+        "@types/lodash": "^4.14.68"
+    }
+}

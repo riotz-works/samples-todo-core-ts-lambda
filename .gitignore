@@ -63,8 +63,21 @@ typings/
 
 
 # End of https://www.gitignore.io/api/node
+
+# .DS_Store for Mac users
+.DS_Store
+
 # Transpiled sources for distribution
 dist/
 
 # Serverless framework artifacts
-.serverless
+deploy/.serverless/
+
+# .DS_Store for Mac users
+.DS_Store
+
+# Transpiled sources for distribution
+dist/
+
+# Serverless framework artifacts
+deploy/.serverless/

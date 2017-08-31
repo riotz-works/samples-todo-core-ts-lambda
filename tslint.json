@@ -1,1 +1,18 @@
-{ extends: ./tsconfig/tslint-base.json }
+{ 
+    "extends" : "./.tsconfig/tslint-base.json",
+    "rules": {
+        "file-header": [ false ],
+        "no-require-imports": false,
+        "typedef": [
+            true,
+            "call-signature",
+            "arrow-call-signature",
+            "parameter",
+            "arrow-parameter",
+            "property-declaration",
+            "member-variable-declaration",
+            "object-destructuring",
+            "array-destructuring"
+        ]
+    }
+}
