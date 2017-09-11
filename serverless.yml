@@ -47,24 +47,28 @@ provider:
 
 # you can add packaging information here
 package:
+  # individually: true
+  # exclude:
+  #   - ../node_modules/**/README.*
+  #   - ../node_modules/**/test/**
+  #   - ../node_modules/@types
+  #   - ../node_modules/jest
+  #   - ../node_modules/rimraf
+  #   - ../node_modules/jest 
+  #   - ../node_modules/ts-jest
+  #   - ../node_modules/typescript
   include:
-    - ../dist/**/*.js
-    - ../node_modules/**/*
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
+    - target/dist/**/*.js
 
 functions:
   core:
-    handler: dist/app.proxyRouter
+    handler: target/dist/app.proxyRouter
     events:
       - http:
           path: token
           method: post
           cors: true
-      - http:
+      - http;:
           path: users/me
           method: get
           cors: true

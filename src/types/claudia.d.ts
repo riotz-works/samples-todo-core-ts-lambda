@@ -1,6 +1,6 @@
 declare namespace Claudia {
 
-    type Handler = (req: Request<Model.ActionBody>) => Result<Model.ActionBody>;
+    type Handler = (req: Request<any>) => Result<any>;
 
     export interface ApiBuilder {
         ApiResponse: new (body: string, headers: { [name: string]: string }, httpCode: number) => ResponseEntity;
