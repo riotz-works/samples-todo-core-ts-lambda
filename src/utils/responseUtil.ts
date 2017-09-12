@@ -1,4 +1,4 @@
-import { ApiCore, ResponseEntity } from '../apiCore';
+import * as ApiBuilder from 'claudia-api-builder';
 
 /**
  * Utiltiy to generate response in various way.
@@ -12,8 +12,10 @@ export class ResponseUtil {
      * @param message Error message
      * @return Custom response entity for error
      */
-    public static errorResponse(statusCode: number, message: string): ResponseEntity {
-        return new ApiCore.api.ApiResponse({ 'errorMessage': message }, {}, statusCode);
+    public static errorResponse(statusCode: number, message: string): ApiBuilder.ResponseEntity {
+        console.log(`errorResponse statusCode: ${statusCode} message: ${message}`);
+
+        return new ApiBuilder().ApiResponse({ 'errorMessage': message }, {}, statusCode);
     }
 
     /**
@@ -25,8 +27,8 @@ export class ResponseUtil {
      * @return Custom response entity for error
      */
     public static customResponse<T>(
-            statusCode: number, body: T | string, headers: { [name: string]: string } = {}): ResponseEntity {
-        return new ApiCore.api.ApiResponse(body, headers, statusCode);
+            statusCode: number, body: T | string, headers: { [name: string]: string } = {}): ApiBuilder.ResponseEntity {
+        return new ApiBuilder().ApiResponse(body, headers, statusCode);
     }
 
 }

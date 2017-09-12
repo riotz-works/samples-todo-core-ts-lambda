@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { Request, Result } from '../apiCore';
+import { Request, Result } from 'claudia-api-builder';
 import { HttpStatus } from '../enums/httpStatus';
 import { SimpleError } from '../errors/simpleError';
 import { ResponseUtil } from '../utils/responseUtil';

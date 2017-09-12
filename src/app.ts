@@ -3,22 +3,24 @@ import { getUsersMeAction } from './actions/getUsersMe';
 import { postTodosAction } from './actions/postTodos';
 import { postTokenAction } from './actions/postToken';
 
-import { ApiCore, Request } from './apiCore';
+import * as ApiBuilder from 'claudia-api-builder';
 import { BaseError } from './errors/baseError';
 import { ResponseUtil } from './utils/responseUtil';
 
+const api: ApiBuilder = new ApiBuilder();
+
 // Auth
-ApiCore.api.post('/token', postTokenAction);
+api.post('/token', postTokenAction);
 
 // Users
-ApiCore.api.get('/users/me', async(request: Request<Model.Empty>) => getUsersMeAction(request)
+api.get('/users/me', async(request: ApiBuilder.Request<Model.Empty>) => await getUsersMeAction(request)
     .catch((err: BaseError) => ResponseUtil.errorResponse(err.statusCode, err.message)));
 
 // Todos
-ApiCore.api.post('/todos', async(request: Request<Model.Todos>) => postTodosAction(request)
+api.post('/todos', (request: ApiBuilder.Request<Model.Todos>) => postTodosAction(request)
     .catch((err: BaseError) => ResponseUtil.errorResponse(err.statusCode, err.message)));
 
-ApiCore.api.get('/todos', async(request: Request<Model.Todos>) => getTodosAction(request)
+api.get('/todos', (request: ApiBuilder.Request<Model.Todos>) => getTodosAction(request)
     .catch((err: BaseError) => ResponseUtil.errorResponse(err.statusCode, err.message)));
 
-module.exports = ApiCore.api;
+module.exports = api;

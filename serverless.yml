@@ -15,13 +15,13 @@ service: samples-todo-api
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-# frameworkVersion: "=X.X.X"
+frameworkVersion: "^1.18.0"
 
 provider:
   name: aws
   runtime: nodejs6.10
 
-# you can overwrite defaults here
+  # you can overwrite defaults here
   stage: ${opt:stage}
   region: ${opt:region}
 
@@ -42,21 +42,24 @@ provider:
   #            - "/*"
 
 # you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+  environment:
+    table_name_development_users: Users_development
+    table_name_development_todos: Todos_development
+
+custom: 
+  tables:
+    table_name_development_users: Users_development
+    table_name_development_todos: Todos_development
 
 # you can add packaging information here
 package:
-  # individually: true
-  # exclude:
-  #   - ../node_modules/**/README.*
-  #   - ../node_modules/**/test/**
-  #   - ../node_modules/@types
-  #   - ../node_modules/jest
-  #   - ../node_modules/rimraf
-  #   - ../node_modules/jest 
-  #   - ../node_modules/ts-jest
-  #   - ../node_modules/typescript
+  exclude:
+    - node_modules/**/README.*
+    - node_modules/**/test/**
+    - node_modules/aws-sdk/**
+    - target/**
+    - src/**
+    - test/**
   include:
     - target/dist/**/*.js
 
@@ -68,7 +71,7 @@ functions:
           path: token
           method: post
           cors: true
-      - http;:
+      - http:
           path: users/me
           method: get
           cors: true
@@ -114,12 +117,42 @@ functions:
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
+resources:
+  Resources:
 #    NewResource:
 #      Type: AWS::S3::Bucket
 #      Properties:
 #        BucketName: my-new-bucket
+    UsersTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      Properties:
+        TableName: ${self:custom.tables.table_name_development_users}
+        AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: "1"
+          WriteCapacityUnits: "1"
+
+    TodosTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      Properties:
+        TableName: ${self:custom.tables.table_name_development_todos}
+        AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: "1"
+          WriteCapacityUnits: "1"
+   
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
