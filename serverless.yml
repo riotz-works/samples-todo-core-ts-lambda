@@ -15,13 +15,13 @@ service: samples-todo-api
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-# frameworkVersion: "=X.X.X"
+frameworkVersion: "=1.18.0"
 
 provider:
   name: aws
   runtime: nodejs6.10
 
-# you can overwrite defaults here
+  # you can overwrite defaults here
   stage: ${opt:stage}
   region: ${opt:region}
 
@@ -47,16 +47,12 @@ provider:
 
 # you can add packaging information here
 package:
-  # individually: true
-  # exclude:
-  #   - ../node_modules/**/README.*
-  #   - ../node_modules/**/test/**
-  #   - ../node_modules/@types
-  #   - ../node_modules/jest
-  #   - ../node_modules/rimraf
-  #   - ../node_modules/jest 
-  #   - ../node_modules/ts-jest
-  #   - ../node_modules/typescript
+  exclude:
+    - node_modules/**/README.*
+    - node_modules/**/test/**
+    - target/**
+    - src/**
+    - test/**
   include:
     - target/dist/**/*.js
 
@@ -68,7 +64,7 @@ functions:
           path: token
           method: post
           cors: true
-      - http;:
+      - http:
           path: users/me
           method: get
           cors: true
