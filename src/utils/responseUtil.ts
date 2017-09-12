@@ -13,7 +13,7 @@ export class ResponseUtil {
      * @return Custom response entity for error
      */
     public static errorResponse(statusCode: number, message: string): ResponseEntity {
-        return new ApiCore.api.ApiResponse(JSON.stringify({ 'errorMessage': message }), {}, statusCode);
+        return new ApiCore.api.ApiResponse({ 'errorMessage': message }, {}, statusCode);
     }
 
     /**
@@ -25,8 +25,8 @@ export class ResponseUtil {
      * @return Custom response entity for error
      */
     public static customResponse<T>(
-            statusCode: number, body: T, headers: { [name: string]: string } = {}): ResponseEntity {
-        return new ApiCore.api.ApiResponse(JSON.stringify(body), headers, statusCode);
+            statusCode: number, body: T | string, headers: { [name: string]: string } = {}): ResponseEntity {
+        return new ApiCore.api.ApiResponse(body, headers, statusCode);
     }
 
 }

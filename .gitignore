@@ -68,5 +68,5 @@ typings/
 target/
 
 # Serverless framework artifacts
-.serverless
+.serverless/
 

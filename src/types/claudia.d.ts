@@ -3,7 +3,7 @@ declare namespace Claudia {
     type Handler = (req: Request<any>) => Result<any>;
 
     export interface ApiBuilder {
-        ApiResponse: new (body: string, headers: { [name: string]: string }, httpCode: number) => ResponseEntity;
+        ApiResponse: new (body: {} | string, headers: { [name: string]: string }, httpCode: number) => ResponseEntity;
         new (options?: {}): ApiBuilder;
         get(path: string, request?: Handler): void;
         post(path: string, request?: Handler): void;

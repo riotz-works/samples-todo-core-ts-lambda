@@ -21,7 +21,7 @@ export const getUsersMeAction = async(request: Request<Model.Empty>): Promise<Mo
         'Key': {
             'userId' : 'test01'
         },
-        'TableName' : 'Users_Devv'
+        'TableName' : 'Users_Dev'
     };
 
     return await dynamoDBClient.get(params).promise()
