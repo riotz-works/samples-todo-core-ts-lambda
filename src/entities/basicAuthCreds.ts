@@ -18,14 +18,4 @@ export class BasicAuthCreds {
         }
     }
 
-    public of(userId: string, password: string): BasicAuthCreds {
-        this.userId = userId;
-        this.password = password;
-        return this;
-    }
-
-    public toRawBasicAuthCreds(): string {
-        return this.userId + SPLITTER + this.password;
-    }
-
 }
