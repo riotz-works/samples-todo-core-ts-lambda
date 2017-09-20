@@ -9,7 +9,7 @@ const AWS_REGION = process.env.AWS_DEFAULT_REGION;
 
 const dynamoDBClient = new DynamoDB.DocumentClient({ 'region' : AWS_REGION });
 
-export class DynamoDBMapper<T> {
+export class DynamoDBTemplate<T> {
 
     private tableName: string;
 
@@ -17,12 +17,12 @@ export class DynamoDBMapper<T> {
         this.tableName = tableName;
     }
 
-    public async load(key: {}): Promise<T> {
+    public async load(key: { [name: string]: string }): Promise<T> {
 
         const params: GetItemInput = {
             'Key' : key,
             'TableName' : this.tableName 
-        }
+        };
 
         return await dynamoDBClient.get(params)
             .promise()

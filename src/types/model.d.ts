@@ -4,11 +4,6 @@ declare namespace Model {
         // For typing empty body '{ }'
     }
 
-    export interface BasicAuthCreds {
-        userId: string;
-        password: string;
-    }
-
     export interface AuthToken {
         token_type: string;
         id_token: string;
@@ -17,7 +12,7 @@ declare namespace Model {
     }
 
     export interface SignupInfo {
-        basicAuthCreds: BasicAuthCreds;
+        basicAuthCreds: string;
         userId: string;
     }
 
