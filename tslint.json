@@ -1,8 +1,16 @@
 { 
     "extends" : "./.tsconfig/tslint-base.json",
     "rules": {
-        "file-header": [ false ],
+        "align": [true, "elements", "members", "parameters", "statements"],
+        "arrow-return-shorthand": false,
+        "comment-format": false,
+        "file-header": [ false ], "no-default-export": false,
+        "no-inferrable-types": [true, "ignore-params"],
+        "no-reference": false,
         "no-require-imports": false,
+        "no-trailing-whitespace": [true, "ignore-comments"],
+        "object-literal-key-quotes": [true, "consistent-as-needed"],
+        "object-literal-sort-keys": false,
         "typedef": [
             true,
             "call-signature",

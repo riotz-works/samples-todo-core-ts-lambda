@@ -15,10 +15,12 @@
     },
     "dependencies": {
         "aws-sdk": "^2.94.0",
+        "bunyan": "^1.8.12",
         "claudia-api-builder": "^2.5.1",
         "lodash": "^4.17.4"
     },
     "devDependencies": {
+        "@types/bunyan": "^1.8.4",
         "@types/node": "^6.0.85",
         "@types/jest": "^20.0.8",
         "@types/lodash": "^4.14.74",
@@ -26,7 +28,7 @@
         "jsurl-cli": "*",
         "rimraf": "2.6.2",
         "ts-jest": "^21.0.0",
-        "typescript": "2.5.2"
+        "typescript": "2.6.2"
     },
     "jest": {
         "moduleFileExtensions": [

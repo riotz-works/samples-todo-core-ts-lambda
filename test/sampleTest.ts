@@ -1,6 +1,5 @@
-import { ApiCore } from '../src/apiCore';
+import { api } from '../src/api';
 
 test('test', () => {
-    const a = ApiCore.api;
     console.log('this is test');
 });

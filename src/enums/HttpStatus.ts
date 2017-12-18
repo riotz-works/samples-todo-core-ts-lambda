@@ -1,4 +1,4 @@
-export enum HttpStatus {
+enum HttpStatus {
     OK = 200,
     BAD_REQUEST = 400,
     UNAUTHORIZED = 401,
@@ -8,3 +8,5 @@ export enum HttpStatus {
     INTERNAL_SERVER_ERROR = 500,
     SERVICE_UNAVAILABLE = 503
 }
+
+export default HttpStatus;
