@@ -4,5 +4,12 @@ jobs:
     docker:
       - image: circleci/node:6.10
     steps:
+      - run:
+          name: Check system information
+          command: |
+            echo "node $(node -v)"
+            echo "npm v$(npm -v)"
       - checkout
-      - run: echo "A first hello"
+      - run:
+          name: Build
+          command: npm run setup
