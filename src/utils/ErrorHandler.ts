@@ -29,7 +29,7 @@ export default class ErrorHandler {
             logger.warn({ req, err }, `Thrown API Error: ${err.message}`);
 
             return new ResponseBuilder<ErrorBody>()
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .status((err as ApiError).statusCode)
                 .body((err as ApiError).body)
                 .build();
         }
