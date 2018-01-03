@@ -28,6 +28,7 @@
         "jsurl-cli": "*",
         "rimraf": "2.6.2",
         "ts-jest": "^21.0.0",
+        "tslint": "^5.8.0",
         "typescript": "2.6.2"
     },
     "jest": {

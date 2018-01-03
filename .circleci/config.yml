@@ -1,15 +1,48 @@
 version: 2
 jobs:
+
   build:
     docker:
       - image: circleci/node:6.10
+    working_directory: /tmp/samples-todo-core-ts-lambda
     steps:
       - run:
           name: Check system information
           command: |
             echo "node $(node -v)"
             echo "npm v$(npm -v)"
+
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Setup
+          command: npm run setup
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run:
           name: Build
-          command: npm run setup
+          command: npm run build
+
+  deploy:
+    docker:
+      - image: circleci/node:6.10
+    working_directory: /tmp/samples-todo-core-ts-lambda
+    steps:
+      - run:
+          name: Deploy
+          command: echo "deploy operations"
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
