@@ -14,11 +14,11 @@ export default class Logger {
      * Provides suitable bunyan logger object for each environment.  
      * Basically, you can set the logging level and get theonly result for that with the 'level' parameter.
      * There are 2 available logging levels below.
-     *   - info
+     *   - info (default)
      *   - debug
      * 
-     * Set the level with the string value of each level.  
-     * It is recommended that you create the logger object for each of your actions class modules  
+     * You can set the log level of the string value.  
+     * It is recommended that you create the logger object for each of your actions class modules
      * to keep the logging context consistently.
      * 
      * @param loggerName Logger name
