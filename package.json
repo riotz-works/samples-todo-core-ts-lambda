@@ -2,7 +2,7 @@
     "name": "samples-todo-core-ts-lambda",
     "version": "0.0.0",
     "description": "Sample Lambda Applications :: To-Do",
-    "main": "app.js",
+    "main": "api.js",
     "scripts": {
         "clean": "rimraf ./target",
         "setup": "npm install && npm dedupe",

@@ -9,8 +9,10 @@
         "no-reference": false,
         "no-require-imports": false,
         "no-trailing-whitespace": [true, "ignore-comments"],
+        "no-unused-variable": false,
         "object-literal-key-quotes": [true, "consistent-as-needed"],
         "object-literal-sort-keys": false,
+        "strict-type-predicates": false,
         "typedef": [
             true,
             "call-signature",
