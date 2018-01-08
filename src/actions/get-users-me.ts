@@ -4,13 +4,13 @@
 import { AWSError, DynamoDB } from 'aws-sdk';
 import * as ApiBuilder from 'claudia-api-builder';
 import * as _ from 'lodash';
-import HttpStatus from '../enums/HttpStatus';
-import ApiError from '../errors/ApiError';
-import Logger from '../utils/Logger';
-import ResponseBuilder from '../utils/ResponseBuilder';
+import HttpStatus from '../enums/http-status';
+import ApiError from '../errors/api-error';
+import Logger from '../utils/logger';
+import ResponseBuilder from '../utils/response-builder';
 
-const dynamoDBClient = new DynamoDB.DocumentClient({ region : 'us-west-2' });
 const logger = Logger.getLogger('GetUsersMeAction');
+const dynamoDBClient = new DynamoDB.DocumentClient({ region : 'us-west-2' });
 
 /**
  * Response body type for GetUsersMeAction.
@@ -37,7 +37,7 @@ export default class GetUsersMeAction {
 
         const params: DynamoDB.DocumentClient.GetItemInput = {
             Key: {
-                userId : 'test02'
+                userId : 'test01'
             },
             TableName : 'Samples_Todo_Users_development'
         };
@@ -52,12 +52,14 @@ export default class GetUsersMeAction {
                 });
             });
 
-        // DynamoDB returns empty object('{}') if the item does not exist with given params
+        // DynamoDBClient returns promise with empty object (resolved value is '{}')
+        // if the item does not exist with given params
         if (_.isNil(user)) {
             throw new ApiError(HttpStatus.NOT_FOUND, {
                 message : 'User not found.'
             });
         }
+
         logger.debug({ req }, `Returning user profile: ${JSON.stringify(user)}`);
         logger.info({ req }, 'Complete action GET /users/me');
 

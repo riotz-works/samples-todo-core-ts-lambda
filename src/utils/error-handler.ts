@@ -3,10 +3,10 @@
  */
 import * as ApiBuilder from 'claudia-api-builder';
 import * as _ from 'lodash';
-import HttpStatus from '../enums/HttpStatus';
-import ApiError, { ErrorBody } from '../errors/ApiError';
-import Logger from './Logger';
-import ResponseBuilder from './ResponseBuilder';
+import HttpStatus from '../enums/http-status';
+import ApiError, { ErrorBody } from '../errors/api-error';
+import Logger from './logger';
+import ResponseBuilder from './response-builder';
 
 const logger = Logger.getLogger('ErrorHandler');
 

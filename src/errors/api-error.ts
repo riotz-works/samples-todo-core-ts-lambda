@@ -3,7 +3,7 @@
  */
 
 /**
- * Error response body for the appliction.
+ * Response type of API error.
  */
 export interface ErrorBody {
     message: string;

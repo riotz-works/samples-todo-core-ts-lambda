@@ -2,8 +2,8 @@
  * Copyright 2018 Riotz Works.
  */
 import * as ApiBuilder from 'claudia-api-builder';
-import GetUsersMeAction from './actions/GetUsersMeAction';
-import ErrorHandler from './utils/ErrorHandler';
+import GetUsersMeAction from './actions/get-users-me';
+import ErrorHandler from './utils/error-handler';
 
 export const api = new ApiBuilder({requestFormat : 'AWS_PROXY'});
 

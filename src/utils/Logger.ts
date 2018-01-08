@@ -5,7 +5,7 @@
 import * as bunyan from 'bunyan';
 import * as ApiBuilder from 'claudia-api-builder';
 import * as _ from 'lodash';
-import Config from '../Config';
+import Config from '../config';
 
 /**
  * Class for providing a suitable logger for each environment.
