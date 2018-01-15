@@ -2,7 +2,7 @@
     "name": "samples-todo-core-ts-lambda",
     "version": "0.0.0",
     "description": "Sample Lambda Applications :: To-Do",
-    "main": "app.js",
+    "main": "api.js",
     "scripts": {
         "clean": "rimraf ./target",
         "setup": "npm install && npm dedupe",
@@ -21,7 +21,7 @@
     },
     "devDependencies": {
         "@types/bunyan": "^1.8.4",
-        "@types/node": "^6.0.85",
+        "@types/node": "^8.0.33",
         "@types/jest": "^20.0.8",
         "@types/lodash": "^4.14.74",
         "jest": "^21.0.2",
