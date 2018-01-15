@@ -12,7 +12,8 @@ provider:
     - Effect: "Allow"
       Action:
         - "dynamodb:*"
-      Resource: "*" 
+        - "ssm:Get*"
+      Resource: "*"
 
 package:
   exclude:

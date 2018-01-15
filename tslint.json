@@ -1,9 +1,10 @@
-{ 
+{
     "extends" : "./.tsconfig/tslint-base.json",
     "rules": {
         "align": [true, "elements", "members", "parameters", "statements"],
         "arrow-return-shorthand": false,
         "comment-format": false,
+        "completed-docs": [true, "functions", "methods", "class"],
         "file-header": [ false ], "no-default-export": false,
         "no-inferrable-types": [true, "ignore-params"],
         "no-reference": false,
@@ -12,6 +13,8 @@
         "no-unused-variable": false,
         "object-literal-key-quotes": [true, "consistent-as-needed"],
         "object-literal-sort-keys": false,
+        "prefer-function-over-method": false,
+        "space-before-function-paren": false,
         "strict-type-predicates": false,
         "typedef": [
             true,

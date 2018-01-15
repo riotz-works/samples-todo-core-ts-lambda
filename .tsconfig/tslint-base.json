@@ -137,7 +137,7 @@
         "indent": [
             true,
             "spaces",
-            4
+            2
         ],
         "linebreak-style": [
             true,
@@ -264,10 +264,7 @@
             true,
             "always"
         ],
-        "space-before-function-paren": [
-            true,
-            "never"
-        ],
+        "space-before-function-paren": false,
         "space-within-parens": 0,
         "switch-final-break": [
             true,
