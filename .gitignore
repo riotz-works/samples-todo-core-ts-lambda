@@ -69,4 +69,5 @@ target/
 
 # Serverless framework artifacts
 .serverless/
+.built/
 

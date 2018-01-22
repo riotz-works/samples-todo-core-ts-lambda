@@ -15,28 +15,19 @@ provider:
         - "ssm:Get*"
       Resource: "*"
 
-package:
-  exclude:
-    - node_modules/**/README*
-    - node_modules/**/LICENSE*
-    - node_modules/**/*.md
-    - node_modules/**/*.html
-    - node_modules/**/*.png
-    - node_modules/**/test/**
-    - node_modules/aws-sdk/**
-    - target/**
-    - src/**
-    - test/**
-    - "*.json"
-    - "*.md"
-    - ".tsconfig/**"
-  include:
-    - package.json
-    - target/dist/**/*.js
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  webpackIncludeModules:
+    forceExclude:
+      - aws-sdk
 
 functions:
   core:
-    handler: target/dist/api.proxyRouter
+    handler: src/api.proxyRouter
     events:
       - http:
           path: users/me

@@ -4,6 +4,7 @@
     "description": "Sample Lambda Applications :: To-Do",
     "main": "api.js",
     "scripts": {
+        "serve": "serverless webpack serve",
         "clean": "rimraf ./target",
         "setup": "npm install && npm dedupe",
         "validate": "npm run gitignore:validate",
@@ -21,15 +22,22 @@
     },
     "devDependencies": {
         "@types/bunyan": "^1.8.4",
-        "@types/node": "^8.0.33",
         "@types/jest": "^20.0.8",
         "@types/lodash": "^4.14.74",
+        "@types/node": "^8.0.33",
         "jest": "^21.0.2",
         "jsurl-cli": "*",
         "rimraf": "2.6.2",
+        "serverless": "^1.25.0",
+        "serverless-dynamodb-local": "^0.2.27",
+        "serverless-offline": "^3.16.0",
+        "serverless-webpack": "^4.2.0",
         "ts-jest": "^21.0.0",
+        "ts-loader": "^3.3.0",
         "tslint": "^5.8.0",
-        "typescript": "2.6.2"
+        "typescript": "2.6.2",
+        "webpack": "^3.10.0",
+        "webpack-node-externals": "^1.6.0"
     },
     "jest": {
         "moduleFileExtensions": [
