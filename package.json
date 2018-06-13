@@ -1,7 +1,7 @@
 {
     "name": "samples-todo-core-ts-lambda",
     "version": "0.0.0",
-    "description": "Sample Lambda Applications :: To-Do",
+    "description": "Sample Lambda Applications :: To Do",
     "main": "api.js",
     "scripts": {
         "serve": "serverless webpack serve",
